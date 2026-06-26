@@ -29,6 +29,12 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
         >
           Platform
         </Link>
+        <Link
+          href="/market"
+          className="hidden hover:opacity-100 opacity-80 sm:inline"
+        >
+          Market
+        </Link>
         <InquiryTrigger
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
             isDark

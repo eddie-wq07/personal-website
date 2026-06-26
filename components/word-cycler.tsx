@@ -27,16 +27,30 @@ export function WordCycler({
   }, [intervalMs]);
 
   useEffect(() => {
-    if (i !== words.length) return;
+    if (i < words.length) return;
+    const delay = i === words.length ? 1300 : 0;
     const t = setTimeout(() => {
       setAnimate(false);
       setI(0);
       requestAnimationFrame(() =>
         requestAnimationFrame(() => setAnimate(true))
       );
-    }, 1300);
+    }, delay);
     return () => clearTimeout(t);
   }, [i, words.length]);
+
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState !== "visible") return;
+      setAnimate(false);
+      setI(0);
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => setAnimate(true))
+      );
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, []);
 
   const widest = words.reduce((a, b) => (a.length >= b.length ? a : b));
 
