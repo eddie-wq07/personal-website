@@ -16,8 +16,6 @@ export default async function ProjectPage({
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const items = project.detailImages ?? project.images.map((src) => ({ src, caption: undefined }));
-
   return (
     <div className="min-h-screen bg-white text-zinc-900">
       <Nav variant="light" />
@@ -26,16 +24,27 @@ export default async function ProjectPage({
         <h1 className="mb-12 text-4xl font-bold tracking-tight">{project.title}</h1>
 
         <div className="flex flex-col gap-2">
-          {items.map((item, i) => (
+          {project.media.map((item, i) => (
             <div key={i}>
-              <Image
-                src={item.src}
-                alt=""
-                width={800}
-                height={600}
-                className="w-full object-cover"
-                unoptimized
-              />
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full"
+                />
+              ) : (
+                <Image
+                  src={item.src}
+                  alt=""
+                  width={800}
+                  height={600}
+                  className="w-full object-cover"
+                  unoptimized
+                />
+              )}
               {item.caption && (
                 <p className="mt-1.5 text-xs text-zinc-400">{item.caption}</p>
               )}
