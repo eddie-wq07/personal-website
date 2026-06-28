@@ -18,22 +18,10 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
       </Link>
       <div className="flex items-center gap-6 text-sm">
         <Link
-          href="/platform"
-          className="hidden hover:opacity-100 opacity-80 sm:inline"
-        >
-          Platform
-        </Link>
-        <Link
           href="/portfolio"
           className="hidden hover:opacity-100 opacity-80 sm:inline"
         >
           Portfolio
-        </Link>
-        <Link
-          href="/about"
-          className="hidden hover:opacity-100 opacity-80 sm:inline"
-        >
-          About
         </Link>
         <InquiryTrigger
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
