@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { InquiryTrigger } from "@/components/inquiry-modal";
 
 export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
@@ -12,15 +11,10 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
           : "border-zinc-200 bg-white text-zinc-900"
       }`}
     >
-      <Link href="/" aria-label="Orex home" className="flex items-center">
-        <Image
-          src="/logo-with-name.png"
-          alt="Orex"
-          width={1240}
-          height={642}
-          priority
-          className={`h-8 w-auto md:h-9 ${isDark ? "invert" : ""}`}
-        />
+      <Link href="/" aria-label="Edward Jung home" className="flex items-center">
+        <span className="text-base font-semibold tracking-tight">
+          Edward Jung
+        </span>
       </Link>
       <div className="flex items-center gap-6 text-sm">
         <Link
@@ -30,10 +24,16 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
           Platform
         </Link>
         <Link
-          href="/market"
+          href="/portfolio"
           className="hidden hover:opacity-100 opacity-80 sm:inline"
         >
-          Market
+          Portfolio
+        </Link>
+        <Link
+          href="/about"
+          className="hidden hover:opacity-100 opacity-80 sm:inline"
+        >
+          About
         </Link>
         <InquiryTrigger
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
@@ -42,7 +42,7 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
               : "bg-black text-white hover:bg-black/90"
           }`}
         >
-          Get early access
+          Get in touch
         </InquiryTrigger>
       </div>
     </nav>
