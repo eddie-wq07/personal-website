@@ -23,6 +23,12 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
         >
           Portfolio
         </Link>
+        <Link
+          href="/goals"
+          className="hidden hover:opacity-100 opacity-80 sm:inline"
+        >
+          Goals
+        </Link>
         <InquiryTrigger
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
             isDark
