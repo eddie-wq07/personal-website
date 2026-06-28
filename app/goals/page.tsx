@@ -45,6 +45,12 @@ export default function GoalsPage() {
             Thanks for reading. Feel to reach out, I&apos;ll try to get back to you as soon as I can.
           </p>
         </div>
+
+        <div className="mt-16 border-t border-zinc-100 pt-8 text-base leading-relaxed text-zinc-700">
+          <p>
+            One more thing. I&apos;m building on my own right now, but I&apos;m also open to work. If you&apos;re a physical AI company that&apos;s serious about shipping, I&apos;d love to learn what you&apos;re doing and see if I&apos;d be a good fit. Physical AI is the goal, but I&apos;m also exploring ML infra and distributed systems, so I&apos;m open to roles there too.
+          </p>
+        </div>
       </main>
     </div>
   );
