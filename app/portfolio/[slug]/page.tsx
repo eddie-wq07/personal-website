@@ -16,7 +16,7 @@ export default async function ProjectPage({
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const items = project.detailImages ?? project.images.map((src) => ({ src }));
+  const items = project.detailImages ?? project.images.map((src) => ({ src, caption: undefined }));
 
   return (
     <div className="min-h-screen bg-white text-zinc-900">
