@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const EMAIL = "edward.h.jung07@gmail.com";
+
 export function InquiryTrigger({
   children,
   className = "",
@@ -9,22 +11,42 @@ export function InquiryTrigger({
   children: React.ReactNode;
   className?: string;
 }) {
-  const [revealed, setRevealed] = useState(false);
+  const [state, setState] = useState<"idle" | "revealed" | "copied">("idle");
 
-  if (revealed) {
+  const handleClick = async () => {
+    if (state === "idle") {
+      setState("revealed");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setState("copied");
+      setTimeout(() => setState("revealed"), 2500);
+    } catch {
+      // fallback: just stay revealed
+    }
+  };
+
+  if (state === "idle") {
     return (
-      <a
-        href="mailto:edward.h.jung07@gmail.com"
-        className={className}
-      >
-        edward.h.jung07@gmail.com
-      </a>
+      <button type="button" onClick={handleClick} className={className}>
+        {children}
+      </button>
     );
   }
 
   return (
-    <button type="button" onClick={() => setRevealed(true)} className={className}>
-      {children}
+    <button type="button" onClick={handleClick} className={className}>
+      {state === "copied" ? (
+        <span className="flex items-center gap-1.5">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <path d="M2 6.5L5.5 10L11 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          copied to clipboard
+        </span>
+      ) : (
+        EMAIL
+      )}
     </button>
   );
 }
