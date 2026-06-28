@@ -16,10 +16,11 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Orex — From simulation to the real world.",
-  description:
-    "Orex is the infrastructure layer that connects your Isaac Sim and MuJoCo environments to your physical fleet.",
-  icons: { icon: "/logo.png" },
+  title: "Edward Jung",
+  description: "Edward Jung — physical systems that scale.",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😊</text></svg>",
+  },
 };
 
 export default function RootLayout({
