@@ -13,10 +13,10 @@ export const projects: Project[] = [
   {
     slug: "current-project",
     title: "Current Project",
+    description: "Work in progress. Running simulator on unitree.",
     media: [
-      { type: "video", src: "/projects/current-project/video-1.mp4" },
-      { type: "video", src: "/projects/current-project/video-2.mp4" },
       { type: "image", src: "/projects/current-project/1.jpg" },
+      { type: "image", src: "/projects/current-project/2.jpg" },
     ],
   },
   {
