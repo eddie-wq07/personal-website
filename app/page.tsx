@@ -18,11 +18,13 @@ export default function Home() {
         />
       </div>
       <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 px-6 text-center">
-        <h1 className="text-5xl font-bold tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl">
-          I like building <WordCycler words={["weird", "scalable", "cool"]} /> things
+        <h1 className="flex flex-col items-center gap-0 text-5xl font-bold tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl">
+          <span>I like building</span>
+          <WordCycler words={["weird", "scalable", "cool"]} />
+          <span>things</span>
         </h1>
         <p className="max-w-xl text-sm text-white/70 sm:text-base">
-          Software engineer who cares about craft, speed, and things that actually work.
+          physical systems that scale.
         </p>
       </div>
     </main>
