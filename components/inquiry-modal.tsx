@@ -14,17 +14,11 @@ export function InquiryTrigger({
   const [state, setState] = useState<"idle" | "revealed" | "copied">("idle");
 
   const handleClick = async () => {
-    if (state === "idle") {
-      setState("revealed");
-      return;
-    }
     try {
       await navigator.clipboard.writeText(EMAIL);
-      setState("copied");
-      setTimeout(() => setState("revealed"), 2500);
-    } catch {
-      // fallback: just stay revealed
-    }
+    } catch {}
+    setState("copied");
+    setTimeout(() => setState("revealed"), 2500);
   };
 
   if (state === "idle") {
