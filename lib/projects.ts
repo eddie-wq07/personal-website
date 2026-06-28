@@ -11,9 +11,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "infer",
-    title: "Infer",
-    description: "Physical AI inference on edge hardware.",
+    slug: "current-project",
+    title: "Current Project",
+    media: [
+      { type: "video", src: "/projects/current-project/video-1.mp4" },
+      { type: "video", src: "/projects/current-project/video-2.mp4" },
+      { type: "image", src: "/projects/current-project/1.jpg" },
+    ],
+  },
+  {
+    slug: "laundry-folding-robot",
+    title: "Laundry Folding Robot",
     media: [
       { type: "video", src: "/projects/infer/1.mp4" },
       { type: "video", src: "/projects/infer/2.mp4" },
@@ -29,18 +37,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "lerobot",
-    title: "Lerobot ACT Training",
-    description: "Training robot manipulation policies with ACT on LeRobot.",
-    media: [
-      { type: "video", src: "/projects/lerobot/1.mp4" },
-      { type: "video", src: "/projects/lerobot/2.mp4" },
-    ],
-  },
-  {
-    slug: "clash-royale",
-    title: "Clash Royale",
-    description: "Clash Royale AI agent.",
+    slug: "touchless-clash-royale",
+    title: "Touchless Clash Royale",
     media: [
       { type: "image", src: "/projects/clash-royale/1.png" },
       { type: "image", src: "/projects/clash-royale/2.png" },
@@ -48,8 +46,7 @@ export const projects: Project[] = [
   },
   {
     slug: "course-buddy",
-    title: "Course Buddy",
-    description: "Course planning tool for students.",
+    title: "Course Buddy (10k active users/mo)",
     media: [
       { type: "image", src: "/projects/course-buddy/1.png" },
       { type: "image", src: "/projects/course-buddy/2.png" },
