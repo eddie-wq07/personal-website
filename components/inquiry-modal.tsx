@@ -11,36 +11,32 @@ export function InquiryTrigger({
   children: React.ReactNode;
   className?: string;
 }) {
-  const [state, setState] = useState<"idle" | "revealed" | "copied">("idle");
+  const [revealed, setRevealed] = useState(false);
+  const [toast, setToast] = useState(false);
 
   const handleClick = async () => {
+    setRevealed(true);
     try {
       await navigator.clipboard.writeText(EMAIL);
     } catch {}
-    setState("copied");
-    setTimeout(() => setState("revealed"), 2500);
+    setToast(true);
+    setTimeout(() => setToast(false), 2500);
   };
 
-  if (state === "idle") {
-    return (
-      <button type="button" onClick={handleClick} className={className}>
-        {children}
-      </button>
-    );
-  }
-
   return (
-    <button type="button" onClick={handleClick} className={className}>
-      {state === "copied" ? (
-        <span className="flex items-center gap-1.5">
+    <>
+      <button type="button" onClick={handleClick} className={className}>
+        {revealed ? EMAIL : children}
+      </button>
+
+      {toast && (
+        <div className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-white shadow-lg">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-            <path d="M2 6.5L5.5 10L11 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M2 6.5L5.5 10L11 3" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          copied to clipboard
-        </span>
-      ) : (
-        EMAIL
+          Email copied to clipboard
+        </div>
       )}
-    </button>
+    </>
   );
 }
