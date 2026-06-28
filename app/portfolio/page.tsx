@@ -14,10 +14,10 @@ function MediaItem({ item }: { item: { type: string; src: string; caption?: stri
           loop
           muted
           playsInline
-          className="w-full"
+          className="mx-auto max-h-[70vh] w-auto max-w-full"
         />
         {item.caption && (
-          <p className="mt-1.5 text-xs text-zinc-400">{item.caption}</p>
+          <p className="mt-1.5 text-center text-xs text-zinc-400">{item.caption}</p>
         )}
       </div>
     );
@@ -27,13 +27,13 @@ function MediaItem({ item }: { item: { type: string; src: string; caption?: stri
       <Image
         src={item.src}
         alt=""
-        width={800}
-        height={600}
-        className="w-full object-cover"
+        width={1200}
+        height={800}
+        className="mx-auto max-h-[70vh] w-auto max-w-full object-contain"
         unoptimized
       />
       {item.caption && (
-        <p className="mt-1.5 text-xs text-zinc-400">{item.caption}</p>
+        <p className="mt-1.5 text-center text-xs text-zinc-400">{item.caption}</p>
       )}
     </div>
   );
@@ -46,7 +46,7 @@ export default function PortfolioPage() {
 
       {/* sticky project jump nav */}
       <div className="sticky top-[57px] z-10 border-b border-zinc-100 bg-white/90 backdrop-blur-sm">
-        <div className="mx-auto flex w-full max-w-2xl gap-6 overflow-x-auto px-6 py-3 text-sm">
+        <div className="mx-auto flex w-full max-w-3xl gap-6 overflow-x-auto px-6 py-3 text-sm">
           {projects.map((p) => (
             <a
               key={p.slug}
@@ -59,23 +59,23 @@ export default function PortfolioPage() {
         </div>
       </div>
 
-      <main className="mx-auto w-full max-w-2xl px-6 pt-12 pb-24">
+      <main className="mx-auto w-full max-w-3xl px-6 pt-12 pb-24">
         <h1 className="mb-16 text-4xl font-bold tracking-tight">Projects</h1>
 
         <div className="flex flex-col gap-24">
           {projects.map((project) => (
-            <div key={project.slug} id={project.slug}>
-              <div className="flex flex-col gap-2">
+            <section key={project.slug} id={project.slug} className="scroll-mt-32">
+              <h2 className="mb-2 text-xl font-semibold">{project.title}</h2>
+              {project.description && (
+                <p className="mb-5 text-sm text-zinc-500">{project.description}</p>
+              )}
+
+              <div className="flex flex-col gap-4">
                 {project.media.map((item, i) => (
                   <MediaItem key={i} item={item} />
                 ))}
               </div>
-
-              <h2 className="mt-5 text-xl font-semibold">{project.title}</h2>
-              {project.description && (
-                <p className="mt-1 text-sm text-zinc-500">{project.description}</p>
-              )}
-            </div>
+            </section>
           ))}
         </div>
       </main>
