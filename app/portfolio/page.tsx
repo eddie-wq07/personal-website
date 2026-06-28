@@ -41,7 +41,7 @@ function MediaItem({ item }: { item: { type: string; src: string; caption?: stri
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen bg-white text-zinc-900 pt-[57px]">
       <Nav variant="light" />
 
       {/* sticky project jump nav */}
@@ -59,7 +59,7 @@ export default function PortfolioPage() {
         </div>
       </div>
 
-      <main className="mx-auto w-full max-w-3xl px-6 pt-12 pb-24">
+      <main className="mx-auto w-full max-w-3xl px-6 pt-16 pb-24">
         <h1 className="mb-16 text-4xl font-bold tracking-tight">Projects</h1>
 
         <div className="flex flex-col gap-24">
